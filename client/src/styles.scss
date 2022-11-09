@@ -1,0 +1,152 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css");
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 16px;
+}
+
+
+.form-group,
+.form-control {
+  font-size: 15px;
+
+}
+
+.btn {
+  font-size: 15px;
+  padding: 4px 10px;
+}
+
+.dropdown-btn {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.dropdown-btn {
+  .show {
+    width: 100%;
+
+    .dropdown-toggle {
+      width: 100%;
+
+    }
+
+    ul {
+      font-size: 13px;
+      font-weight: 500;
+
+      li {
+        padding: 5px 10px;
+        cursor: pointer;
+      }
+
+      :hover {
+        background-color: #e9ecef;
+      }
+    }
+  }
+}
+
+
+
+button#button-basic.btn.btn-primary.dropdown-toggle {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+p.error {
+  color: red;
+  font-size: 12px;
+  margin-bottom: 0px !important;
+  padding: 5px;
+}
+
+.modal-backdrop.fade {
+  opacity: 0.5;
+}
+
+.modal-open .modal {
+  opacity: 1;
+}
+
+.modal-dialog {
+  max-width: unset !important;
+
+  .modal-content {
+    margin: auto;
+    max-width: 600px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+  }
+}
+
+.theme-green .bs-datepicker-head {
+  background-color: #007bff !important;
+}
+
+
+.theme-green .bs-datepicker-body table td.week span {
+  color: #007bff !important;
+}
+
+.theme-green .bs-datepicker-body table td span.selected {
+  background-color: #007bff !important;
+  color: #fff !important;
+}
+
+.submit-button {
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+/* .modal-dialog {
+	max-width: unset !important;
+	.modal-content {
+		margin: auto;
+		max-width: 525px;
+		border-radius: 4px;
+		border: 1px solid transparent;
+	}
+	&.modal-dialog-right {
+		.modal-content {
+			margin-right: 63px;
+		}
+	}
+
+}
+
+@media screen and (max-width: 480px) {
+  .modal-dialog {
+    margin: 0px !important;
+
+    .modal-content {
+      max-width: 100%;
+      border-radius: 0px;
+      border: 0px;
+    }
+
+
+    &.modal-dialog-centered {
+      display: block;
+      min-height: unset;
+    }
+  }
+
+  .modal-backdrop {
+    background-color: #F9FBFB;
+    opacity: 1;
+
+    &.show {
+      opacity: 1;
+    }
+  }
+}
+*/

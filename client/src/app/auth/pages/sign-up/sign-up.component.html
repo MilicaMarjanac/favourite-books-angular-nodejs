@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="heading">
+    <h1>Sign Up</h1>
+  </div>
+  <form [formGroup]="signUpFormGroup">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" formControlName="firstName">
+      <div [hidden]="formService.isValid(signUpFormGroup,'firstName')">
+        <p class="error">{{formService.showErrorMessage(signUpFormGroup,'firstName') }} </p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="surname">Surname</label>
+      <input type="text" class="form-control" id="surname" formControlName="lastName">
+      <div [hidden]="formService.isValid(signUpFormGroup,'lastName')">
+        <p class="error">{{formService.showErrorMessage(signUpFormGroup,'lastName') }} </p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone Number</label>
+      <input type="text" class="form-control" id="phone" formControlName="phone">
+      <div [hidden]="formService.isValid(signUpFormGroup,'phone')">
+        <p class="error">{{formService.showErrorMessage(signUpFormGroup,'phone') }} </p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" class="form-control" id="email" formControlName="email">
+      <div [hidden]="formService.isValid(signUpFormGroup,'email')">
+        <p class="error">{{formService.showErrorMessage(signUpFormGroup,'email') }} </p>
+      </div>
+      <p *ngIf="incorrectMailOrPassword" class="error">Email already exist</p>
+
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" formControlName="password">
+      <div [hidden]="formService.isValid(signUpFormGroup,'password')">
+        <p class="error">{{formService.showErrorMessage(signUpFormGroup,'password') }} </p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="confirm-password">Confirm Password</label>
+      <input type="password" class="form-control" id="confirm-password" formControlName="confirmPassword">
+      <div [hidden]="formService.isValid(signUpFormGroup,'confirmPassword')">
+        <p class="error">{{formService.showErrorMessage(signUpFormGroup,'confirmPassword') }} </p>
+      </div>
+    </div>
+  </form>
+  <button type="submit" (click)="onAuthFormSubmit(signUpFormGroup, false)" [disabled]="!signUpFormGroup.valid"
+    class="btn btn-primary submit-button">Sign Up</button>
+</div>

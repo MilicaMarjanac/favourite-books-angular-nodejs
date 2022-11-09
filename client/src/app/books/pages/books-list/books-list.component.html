@@ -1,0 +1,21 @@
+<div class="header">
+  <h4>Hello, {{user.firstName}} {{user.lastName}} !</h4>
+  <button type="button" class="btn btn-outline-primary" (click)=" signOutUser()">Log Out</button>
+</div>
+
+<div class="container">
+  <div class="list-heading">
+    <h1>Your Favourite Books</h1>
+  </div>
+  <div class="add-new-book">
+    <button type="button" class="btn btn-primary" (click)="handleBook()">Add New Book</button>
+  </div>
+  <div class="list">
+    <div *ngIf="booksLength==0" class="no-books">
+      <h3>You have no books</h3>
+      <h1>Create your first book!</h1>
+    </div>
+    <app-book-item *ngFor="let book of books" [book]="book" (deleteBookEmitter)="deleteBook($event)"
+      (editBookEmitter)="handleBook($event)"></app-book-item>
+  </div>
+</div>

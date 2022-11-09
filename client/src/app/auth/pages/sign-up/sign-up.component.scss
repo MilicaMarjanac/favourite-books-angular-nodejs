@@ -1,0 +1,13 @@
+.container {
+  max-width: 40%;
+
+  .heading {
+    margin: 40px 0px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .container {
+    max-width: 90%;
+  }
+}

@@ -1,0 +1,53 @@
+<div class="book-item-container">
+  <div class="content">
+    <div class="book-cover">
+      <img [src]="book.image" alt="Book image">
+    </div>
+    <div class="book-data">
+      <div class="status-and-title">
+        <div class="book-item-status">
+          <img
+            src="assets/{{ book.status === 'To Read' ? 'to-read' : book.status === 'In Progress' ? 'in-progress' : 'done' }}.png" />
+        </div>
+        <div class="book-item-title">
+          <h3>{{ book.title }}</h3>
+        </div>
+      </div>
+
+      <div class="priority-and-dates">
+        <div class="book-item-priority">
+          <p>
+            <b>Genre:</b>
+            {{ book.genre }}
+          </p>
+        </div>
+        <div class="book-item-dates">
+          <img src="assets/calendar.png" alt="edit">
+          <p>{{ book.startDate | date:"shortDate"}} - {{ book.endDate | date:"shortDate" }}</p>
+
+        </div>
+        <div class="book-item-duration">
+          <p>Reading {{ book.duration }} days</p>
+        </div>
+      </div>
+      <div class="meta-data">
+        <div class="book-item-mode">
+
+          <p> <b>Author:</b> {{ book.author }}</p>
+        </div>
+        <div class="book-item-dates">
+          <p> <b>Description:</b> {{ book.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="book-item-actions">
+    <button (click)="editBook(book)">
+      <img src="assets/edit.png" alt="edit">
+    </button>
+    <button (click)="deleteBook(book._id)">
+      <img src="assets/remove.png" alt="delete">
+    </button>
+  </div>
+</div>

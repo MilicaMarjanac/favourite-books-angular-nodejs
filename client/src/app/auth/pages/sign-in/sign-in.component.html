@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="heading">
+    <h1>Sign In</h1>
+  </div>
+  <form [formGroup]="signInFormGroup">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" class="form-control" id="email" formControlName="email">
+      <div [hidden]="formService.isValid(signInFormGroup,'email')">
+        <p class="error">{{formService.showErrorMessage(signInFormGroup,'email') }} </p>
+      </div>
+      <p *ngIf="incorrectMailOrPassword" class="error">Incorrect Mail Or Password</p>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" formControlName="password">
+      <div [hidden]="formService.isValid(signInFormGroup,'password')">
+        <p class="error">{{formService.showErrorMessage(signInFormGroup,'password') }} </p>
+      </div>
+    </div>
+  </form>
+  <button type="submit" (click)="onAuthFormSubmit(signInFormGroup, true)" [disabled]="!signInFormGroup.valid"
+    class="btn btn-primary submit-button">Sign In</button>
+  <div class="signup-link">
+    <p> Don't have an account? <a routerLink="/signup">Sign Up</a></p>
+  </div>
+
+
+</div>

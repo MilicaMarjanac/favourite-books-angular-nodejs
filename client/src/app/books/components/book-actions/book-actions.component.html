@@ -1,0 +1,68 @@
+<div class="modal-body">
+  <div class="heading">
+    <h1>{{book ? 'Edit Book' : 'Add Book' }}</h1>
+  </div>
+  <form [formGroup]="bookFormGroup">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title" formControlName="title">
+      <div [hidden]="formService.isValid(bookFormGroup,'title')">
+        <p class="error">{{formService.showErrorMessage(bookFormGroup,'title') }} </p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="author">Author</label>
+      <input type="text" class="form-control" id="author" formControlName="author">
+      <div [hidden]="formService.isValid(bookFormGroup,'author')">
+        <p class="error">{{formService.showErrorMessage(bookFormGroup,'author') }} </p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="image">Image source</label>
+      <input type="text" class="form-control" id="image" formControlName="image">
+      <div [hidden]="formService.isValid(bookFormGroup,'image')">
+        <p class="error">{{formService.showErrorMessage(bookFormGroup,'image') }} </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-sm-6 col-md-6" *ngFor="let dropdown of dropdowns">
+        <app-dropdown [dropdownOptions]="dropdown.options" [formControlName]="dropdown.name"
+          (selected)="setControlValue($event)"></app-dropdown>
+        <div [hidden]="formService.isValid(bookFormGroup, dropdown.name)">
+          <p class="error">{{formService.showErrorMessage(bookFormGroup, dropdown.name) }} </p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6 col-md-6 form-group">
+        <label>Start reading date</label>
+        <input type="text" class="form-control" placeholder="Start Date" bsDatepicker formControlName="startDate"
+          (bsValueChange)="onDateChange($event, 'start')" />
+        <div [hidden]="formService.isValid(bookFormGroup,'startDate')">
+          <p class="error">{{formService.showErrorMessage(bookFormGroup,'startDate') }} </p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-6 form-group">
+        <label>End reading date</label>
+        <input type="text" class="form-control" placeholder="End Date" bsDatepicker formControlName="endDate"
+          (bsValueChange)="onDateChange($event,'end')" />
+        <div [hidden]="formService.isValid(bookFormGroup,'endDate')">
+          <p class="error">{{formService.showErrorMessage(bookFormGroup,'endDate') }} </p>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="book" class="form-group align-items-center">
+      <label for="duration">Time spent on reading</label>
+      <div class="duration">
+        <input type="text" class="form-control" id="duration" formControlName="duration">
+        <p>days</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="note">Description</label>
+      <input type="text" class="form-control" id="note" formControlName="description">
+    </div>
+  </form>
+  <button type="submit" (click)="onFormSubmit(bookFormGroup, bookExists)" [disabled]="!bookFormGroup.valid"
+    class="btn btn-primary submit-button">Apply</button>
+</div>

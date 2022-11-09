@@ -1,0 +1,55 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+
+  button,
+  h4 {
+    margin: 10px 20px;
+  }
+
+  h4 {
+    margin-top: 15px;
+    margin-left: 50px;
+    color: #0a58ca;
+  }
+
+  margin-bottom: 50px;
+}
+
+.container {
+  width: 80%;
+
+  .list-heading {
+    text-align: center;
+    margin-bottom: 40px;
+
+    h1 {
+      font-size: 40px;
+    }
+  }
+
+  .add-new-book {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 30px;
+
+    button {
+      padding: 8px 12px;
+      font-size: 16px;
+      font-weight: 500;
+    }
+  }
+
+  .no-books {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 20px;
+    padding: 20px;
+    background-color: rgb(237, 238, 238);
+  }
+
+  .list {
+    margin-top: 30px;
+    scroll-margin-top: 100px;
+  }
+}

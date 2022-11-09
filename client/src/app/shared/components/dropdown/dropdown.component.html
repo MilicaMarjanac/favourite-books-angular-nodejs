@@ -1,0 +1,14 @@
+<div class="dropdown-btn">
+  <label for="button-basic">Reading {{formControlName}}</label>
+  <div class="btn-group" dropdown>
+    <button #dropdown1 id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
+      aria-controls="dropdown-basic" (click)="markAsTouched()">
+      {{value ? value: 'Select Option'}}
+    </button>
+    <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
+      <li role="menuitem" *ngFor="let option of dropdownOptions" (click)="chooseDropdownItem(option)">
+        {{ option }}
+      </li>
+    </ul>
+  </div>
+</div>
